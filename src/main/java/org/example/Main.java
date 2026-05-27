@@ -1,32 +1,35 @@
 package org.example;
 
-
 public class Main {
     public static void main(String[] args) {
-        // 1. Instancias de objetos
-        // Deben de cambiar estos objetos, creen los propios suyos, estos estan de referencia.
 
-        Categoria animeCat = new Categoria("Manga y Anime", 50, 9.5);
-        Categoria arteCat = new Categoria("Ilustración Digital", 30, 8.0);
+        Categoria catVideojuegos = new Categoria("Gaming & E-Sports", 100, 9.8);
+        Categoria catArteVisual = new Categoria("Arte Visual y Cómic", 45, 8.5);
 
-        Cosplayer cosplayer1 = new Cosplayer("Luis", "Chile", 20, 5, EstiloCosplay.ANIME);
-        Artista artista1 = new Artista("Camila", "México", 22, "Wacom Intuos", 3);
+        Cosplayer cosplayerJavi = new Cosplayer("Javi", "Chile", 26, 4, EstiloCosplay.VIDEOJUEGOS);
+        Artista artistaSofia = new Artista("Sofía", "Colombia", 24, "Huion Kamvas Pro", 2);
 
-        Agrupacion comunidadAnime = new Agrupacion("Team Otaku UFRO", animeCat);
-        Panel panelPrincipal = new Panel(animeCat, "15:30 hrs");
+        Agrupacion comunidadGaming = new Agrupacion("Legión Trifuerza", catVideojuegos);
+        Panel panelPrincipal = new Panel(catVideojuegos, "17:00 hrs");
 
-        // --- SECCIÓN DE PRUEBAS ---
-        // Ej: agregar personas a categorías, meter miembros a la agrupación, montar el panel y llamar a mostrarInformacion().
+        cosplayerJavi.agregarCategoria(catVideojuegos);
+        artistaSofia.agregarCategoria(catArteVisual);
 
-        cosplayer1.agregarCategoria(animeCat);
-        artista1.agregarCategoria(arteCat);
+        comunidadGaming.agregarMiembro(cosplayerJavi);
 
-        comunidadAnime.agregarMiembro(cosplayer1);
-        comunidadAnime.agregarMiembro(artista1);
+        panelPrincipal.agregarPanelista(cosplayerJavi);
+        panelPrincipal.agregarPanelista(artistaSofia);
+        panelPrincipal.agregarPanelista(comunidadGaming);
 
-        panelPrincipal.agregarPanelista(cosplayer1);
-        panelPrincipal.agregarPanelista(artista1);
+
+        cosplayerJavi.realizarPresentacion();
+        System.out.println();
+        artistaSofia.realizarPresentacion();
+
+        System.out.println("Información de la Agrupación");
+        comunidadGaming.mostrarInformacion();
+
+        System.out.println("Información del Panel");
         panelPrincipal.mostrarInformacion();
-
     }
 }
