@@ -13,6 +13,9 @@ public class Categoria {
 
     public void mostrarInformacion() {
         // TODO: Completar lógica método (imprimir los atributos de la categoría)
+        System.out.println("Nombre: " + this.nombre);
+        System.out.println("Cupos máximos: " + this.numeroCuposMaximos);
+        System.out.println("Popularidad: " + this.popularidadEstimada);
     }
 
     // Getters y Setters

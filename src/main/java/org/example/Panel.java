@@ -16,14 +16,40 @@ public class Panel {
 
     public void agregarPanelista(Object panelista) {
         // TODO: Completar lógica método (debe validar si es instancia de Persona o Agrupacion antes de añadir)
+        if (panelista instanceof Persona esPersona){
+            panelistas.add(panelista);
+            System.out.println("Persona "+ esPersona.getNombre()+ " agregada a panelista.");
+        } else if (panelista instanceof Agrupacion esAgrupacion){
+            panelistas.add(panelista);
+            System.out.println("Agrupación " + esAgrupacion.getNombreGrupo()+" agregada a panelistas.");
+        }
     }
 
     public void eliminarPanelista(Object panelista) {
         // TODO: Completar lógica método
+        if (panelista instanceof Persona esPersona){
+            panelistas.remove(panelista);
+            System.out.println("Persona "+ esPersona.getNombre()+ " eliminada de panelista.");
+        } else if (panelista instanceof Agrupacion esAgrupacion){
+            panelistas.remove(panelista);
+            System.out.println("Agrupación " + esAgrupacion.getNombreGrupo()+" eliminada de panelista.");
+        }
     }
 
     public void mostrarInformacion() {
-        // TODO: Completar lógica método (mostrar hora, tema/categoría y quiénes exponen)
+        System.out.println("Hora presentación: " + this.horaPresentacion);
+        System.out.println("Tema: " + this.categoria.getNombre());
+        System.out.println("¿Quiénes exponen?");
+
+        for (Object p : panelistas) {
+
+            if (p instanceof Persona persona) {
+                System.out.println("- Persona: " + persona.getNombre());
+
+            } else if (p instanceof Agrupacion agrupacion) {
+                System.out.println("- Agrupación: " + agrupacion.getNombreGrupo());
+            }
+        }
     }
 
     // Getters y Setters
