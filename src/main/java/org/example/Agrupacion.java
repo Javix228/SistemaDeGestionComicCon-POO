@@ -16,14 +16,25 @@ public class Agrupacion {
 
     public void agregarMiembro(Persona persona) {
         // TODO: Completar lógica método
+        miembros.add(persona);
     }
 
     public void eliminarMiembro(Persona persona) {
         // TODO: Completar lógica método
+        miembros.remove(persona);
     }
 
     public void mostrarInformacion() {
         // TODO: Completar lógica método (detalles del grupo, su categoría y recorrer la lista de miembros)
+        System.out.println("Nombre grupo: " + this.nombreGrupo);
+        System.out.println("Categoria: " + this.categoriaPrincipal);
+        System.out.println("==LISTA DE MIEMBROS==");
+        for (Persona p : miembros){
+            System.out.println("----------------------------------------------------");
+            p.mostrarInformacion();
+            System.out.println("----------------------------------------------------");
+        }
+
     }
 
     // Getters y Setters
